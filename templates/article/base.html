@@ -1,0 +1,162 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="RdmyDyqUQF" />
+    <meta name="sogou_site_verification" content="qLiE3IBX95"/>
+    <meta name="360-site-verification" content="5d0353840bd91c62a99cc567e229dcf3" />
+    <meta name="keywords" content="{{ meta_category|default:'博客，前端, django, python, js, html, css, jq， bootstrap,nginx,uwsgi,echarts' }}" />   <!--用户告诉搜索引擎你的网页关键字是什么-->
+    <meta name="description" id="description" content="{{ meta_description|default:'个人博客知识分享 django搭建的个人博客 前端界面由html,css,js,bootstrap完成，后台为django，数据库为mysql，同时使用redis数据库做缓存，网站引入了echarts饼图和markdown编辑器，部署在阿里云，部署方式为nginx+uwsgi' }}" />      <!--网站内容描述，用来告诉搜索引擎你网站的主要内容-->
+    <meta name="author" content="Wayne" />         <!--标注网页的作者-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ article.title|default:'Wayne‘s blog' }}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="{% static 'images/7.ico' %}" type="image/x-icon" />
+    
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/code.css' %}">  {#语法高亮#}
+    <script type="text/javascript" src="https://cdn.bootcss.com/scrollReveal.js/0.1.2/scrollReveal.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+    
+     <!-- 百度自动推送 -->
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+
+    {% block head %}{% endblock head%}
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+    <header>
+        <div class="container">
+            <div class="logo_title" data-scroll-reveal="enter right and move 20px over 1s">走在海边，走在月下</div>
+        </div>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" data-scroll-reveal="enter bottom and move 20px over 1s after 1s" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_menu" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="index_menu">
+                    <ul class="nav navbar-nav" data-scroll-reveal="enter bottom and move 20px over 0.7s after 0.3s">
+                        <li><a href="{% url 'article:index' %}"><span>首页</span><span>Home</span></a></li>
+                        <li><a href="{% url 'article:about' %}"><span>关于我</span><span>About</span></a></li>
+                        <li><a href="/learn/0/1"><span>学无止境</span><span>Learn</span></a></li>
+                        <li><a href="{% url 'article:slowlife' %}"><span>慢生活</span><span>Life</span></a></li>
+                        <li><a href="{% url 'article:liuyan' %}"><span>留言</span><span>Saying</span></a></li>
+						<li><a href="/admin" target="_blank"><span>管理</span><span>Admin</span></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" method='get' action="/search/" id="search">
+                        <div class="form-group">
+                            <input type="text" name="q" class="form-control" placeholder="搜索文章">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+	<!-- <span class="glyphicon glyphicon-volume-up" id="sound" title="点击关闭声音"></span> -->
+    <!-- <span class="glyphicon glyphicon-play" id="music"  title="点击开启音符"></span> -->
+	
+    {% block content %}{% endblock content%}
+    <a href="javascript:;" class="totop" title="回到顶部"></a>
+    <div class="container footer_href">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-3">
+                        <h4>关于我</h4>
+                        <ul>
+                            <li><a href="https://github.com/WAYNEYHN?tab=repositories" target="_blank">github</a></li>
+                            <li><a href="https://blog.csdn.net/qq_44365878?spm=1001.2100.3001.5343" target="_blank">csdn</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <h4>CDN资源库</h4>
+                        <ul>
+                            <li><a href="https://www.bootcdn.cn/" target="_blank">bootcdn</a></li>
+                            <li><a href="http://cdn.code.baidu.com/" target="_blank">baiducdn</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <h4>常用教程</h4>
+                        <ul>
+                            <li><a href="http://www.w3school.com.cn/" target="_blank">w3school</a></li>
+                            <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <h4>云服务器</h4>
+                        <ul>
+                            <li><a href="https://www.aliyun.com/product/ecs?spm=5176.10695662.744563.1.4b46700c6yzYOh" target="_blank">阿里云</a></li>
+                            <li><a href="https://cloud.tencent.com/product/cvm" target="_blank">腾讯云</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 	<footer class="footer11"><a href='http://www.miibeian.gov.cn/' target="_blank">豫ICP备18027620号</a></footer>
+
+    <script>
+        $(function () {
+            $('#search button').click(function () {
+                if(!$('#search input').val()){      //如果没有输入值的话
+                    alert('必须输入关键字才能搜索！！！');
+                    return false;
+                }
+                $('form').submit();
+            });
+
+            //根据屏幕滚动显示切换饼图的按钮    和上升到顶部的按钮
+            $(window).scroll(function() {
+                var nowTop = $(document).scrollTop();
+
+                if (nowTop>400) {
+                    $('.totop').fadeIn(1000);
+                }
+                else{
+                    $('.totop').fadeOut(1000);
+                }
+            });
+
+            $('.totop').click(function(){
+                //animate不只可以加css属性
+                //html和body都写是为了兼容性
+                $('html,body').animate({scrollTop:0});
+            });
+        })
+    </script>
+
+    <!--创建一个scrollReveal对象  必须加上-->
+    <script>
+        if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+            (function(){
+                window.scrollReveal = new scrollReveal({reset:true});
+            })();
+        }
+    </script>
+    <!-- <script src="{% static 'js/222.js' %}"></script> -->
+    <!-- <script  src="{% static 'js/canvas_index.js' %}"></script> -->
+</body>
+</html>

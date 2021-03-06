@@ -1,0 +1,16 @@
+asgiref==3.3.1
+Django==2.2
+django-haystack==3.0
+django-mdeditor==0.1.18
+docutils==0.16
+importlib-metadata==3.7.0
+jieba==0.42.1
+Markdown==3.3.4
+Pillow==8.1.2
+PyMySQL==1.0.2
+pytz==2021.1
+sqlparse==0.4.1
+suit==2.0.2
+typing-extensions==3.7.4.3
+Whoosh==2.7.4
+zipp==3.4.1
