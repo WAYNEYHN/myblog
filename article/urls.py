@@ -9,6 +9,7 @@ app_name='article'
 urlpatterns = [
     url(r'^$',views.index, name='index'),
     url(r'^pageAjax$',views.pageAjax,name='pageAjax'),      #页面ajax数据请求
+    url(r'^pageAjax_slowlife$',views.pageAjax_slowlife,name='pageAjax_slowlife'),      #页面ajax数据请求
     url(r'^detail/(\d+)/$',views.detail,name='detail'),
     url(r'^chartInfo$',views.chartInfo,name='chartInfo'),   #图表ajax数据请求
     url(r'^about/$',views.about,name='about'),

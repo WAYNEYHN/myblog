@@ -116,11 +116,11 @@ def learn(request, category_id, page_id):
     category_id = int(category_id)
     page_id = int(page_id)
     if category_id == 0:
-        article = Article.objects.filter(isShow=True).order_by('-id')
+        article = Article.objects.filter(isShow=True, category__lifeOrStudy='学无止境').order_by('-id')
     else:
         category = Category.objects.get(id=category_id)
         article = Article.objects.filter(category=category, isShow=True).order_by('-id')
-    category_list = Category.objects.all()
+    category_list = Category.objects.filter(lifeOrStudy="学无止境")
 
     paginator = Paginator(article, 6)  # 分页，每页显示6篇文章
     page_list = paginator.page(page_id).object_list  # 获得要返回的页面的文章列表
@@ -175,3 +175,41 @@ def page_not_found(request):
 # sitemap
 def sitemap(request):
     return render(request, 'sitemap.xml', content_type="application/xml")
+
+@csrf_exempt  # 取消当前函数防跨站请求伪造功能，即便settings中设置了全局中间件。
+def pageAjax_slowlife(request):
+    if request.method == 'GET':
+        page_id = request.GET.get('page_id')
+        article = Article.objects.filter(isShow=True, category__lifeOrStudy='慢生活').order_by('-id')  # 获取所有博客
+        paginator = Paginator(article, 4)  # 分页，每页显示8篇文章
+        page_list = paginator.page(int(page_id)).object_list  # 获得要返回的页面的文章列表
+
+        # 处理要返回的数据
+        result = []
+        array = []
+        for p in page_list:
+            time = p.createTime.strftime('%Y-%m-%d')  # 年月日
+            time1 = p.createTime.strftime('%H:%M:%S')  # 时分秒
+            array.append(time)
+            array.append(time1)
+            array.append(p.title)
+            array.append(str(p.pic))
+            temp = markdown.markdown(p.content, extensions=[  # 把所有的content都传过去，在js中去掉html标签，空格换行，并截取前80个字符
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite',
+                'markdown.extensions.toc',
+            ])
+            dr = re.compile(r'<[^>]+>', re.S)
+            temp = dr.sub('', temp).replace('\n', "").replace(' ', '')
+            array.append(temp[0:95])
+            array.append(p.id)  # 文章的id
+            result.append(array)
+            array = []
+        context = {  # 字典类型
+            'result': result,
+            'page_id': page_id,  # 当前页面
+            'num_pages': paginator.num_pages,  # 页面总数
+        }
+        return HttpResponse(json.dumps(context))  # json.dumps(context)是字符串类型
+
+
