@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'article',
     'mdeditor',     #富文本编辑器
     'haystack',
+    'usermanager',
 ]
 
 MIDDLEWARE = [
@@ -78,13 +79,24 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST':'127.0.0.1',
+#         'POST':'3306',
+#         'USER':'root',
+#         'PASSWORD':'Wayne1999@gmail.com',
+#         'NAME': 'blog',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST':'127.0.0.1',
         'POST':'3306',
         'USER':'root',
-        'PASSWORD':'Wayne1999@gmail.com',
+        'PASSWORD':'wayneyang',
         'NAME': 'blog',
     }
 }
