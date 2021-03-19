@@ -5046,3 +5046,29 @@ Not Found: /myadmin/scripts/setup.php
 Not Found: /MyAdmin/scripts/setup.php
 [pid: 14751|app: 0|req: 76/167] 172.93.129.188 () {38 vars in 484 bytes} [Fri Mar 19 13:49:24 2021] GET /MyAdmin/scripts/setup.php => generated 4298 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 2)
 [pid: 14751|app: 0|req: 77/168] 47.93.180.168 () {26 vars in 277 bytes} [Fri Mar 19 13:59:40 2021] GET / => generated 19064 bytes in 10 msecs (HTTP/1.0 200) 3 headers in 111 bytes (1 switches on core 8)
+[pid: 14751|app: 0|req: 78/169] 203.190.47.145 () {32 vars in 459 bytes} [Fri Mar 19 14:11:01 2021] GET / => generated 19064 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 7)
+[pid: 14751|app: 0|req: 79/170] 112.95.208.186 () {42 vars in 867 bytes} [Fri Mar 19 14:13:35 2021] GET / => generated 19064 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 9)
+[pid: 14751|app: 0|req: 80/171] 112.95.208.186 () {44 vars in 842 bytes} [Fri Mar 19 14:13:36 2021] GET /pageAjax?page_id=1&_=1616134416344 => generated 2009 bytes in 26 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 1)
+{'lifeCount': 1, 'studyCount': 7}
+[pid: 14751|app: 0|req: 81/172] 112.95.208.186 () {44 vars in 824 bytes} [Fri Mar 19 14:13:37 2021] GET /chartInfo?_=1616134416345 => generated 33 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 108 bytes (1 switches on core 0)
+[pid: 14751|app: 0|req: 82/173] 112.95.208.186 () {44 vars in 915 bytes} [Fri Mar 19 14:13:49 2021] GET /about/ => generated 10624 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 4)
+-- unavailable modifier requested: 3 --
+[pid: 14751|app: 0|req: 83/175] 106.15.52.246 () {18 vars in 176 bytes} [Fri Mar 19 14:43:03 2021] GET / => generated 19064 bytes in 10 msecs (HTTP/1.0 200) 3 headers in 111 bytes (1 switches on core 3)
+[pid: 14751|app: 0|req: 84/176] 112.95.208.186 () {44 vars in 921 bytes} [Fri Mar 19 14:57:01 2021] GET /detail/5/ => generated 18853 bytes in 80 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 5)
+[pid: 14751|app: 0|req: 85/177] 185.233.186.108 () {22 vars in 232 bytes} [Fri Mar 19 14:57:58 2021] GET / => generated 19064 bytes in 9 msecs (HTTP/1.0 200) 3 headers in 111 bytes (1 switches on core 6)
+[pid: 14751|app: 0|req: 86/178] 112.95.208.186 () {46 vars in 1005 bytes} [Fri Mar 19 15:01:59 2021] GET /detail/5/ => generated 18853 bytes in 81 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 8)
+[pid: 14751|app: 0|req: 87/179] 112.95.208.186 () {44 vars in 979 bytes} [Fri Mar 19 15:02:11 2021] GET /liuyan/ => generated 9099 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 7)
+[pid: 14751|app: 0|req: 88/180] 112.95.208.186 () {44 vars in 983 bytes} [Fri Mar 19 15:02:40 2021] GET /learn/0/1/ => generated 15077 bytes in 41 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 9)
+[pid: 14751|app: 0|req: 89/181] 112.95.208.186 () {44 vars in 984 bytes} [Fri Mar 19 15:02:42 2021] GET /detail/6/ => generated 10461 bytes in 29 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 1)
+[pid: 14751|app: 0|req: 90/182] 112.95.208.186 () {44 vars in 983 bytes} [Fri Mar 19 15:02:53 2021] GET /detail/6/ => generated 10461 bytes in 29 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 14751|app: 0|req: 91/183] 185.173.35.57 () {30 vars in 446 bytes} [Fri Mar 19 15:06:02 2021] GET / => generated 19064 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 4)
+Not Found: /http:/fuwu.sogou.com/404/index.html
+[pid: 14754|app: 0|req: 28/184] 222.186.136.150 () {26 vars in 591 bytes} [Fri Mar 19 15:09:26 2021] GET http://fuwu.sogou.com/404/index.html => generated 1715 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /http:/fuwu.sogou.com/404/index.html
+[pid: 14754|app: 0|req: 29/185] 222.186.136.150 () {26 vars in 449 bytes} [Fri Mar 19 15:09:26 2021] GET http://fuwu.sogou.com/404/index.html => generated 1715 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 8)
+[pid: 14751|app: 0|req: 92/186] 112.95.208.186 () {44 vars in 977 bytes} [Fri Mar 19 15:09:58 2021] GET /about/ => generated 10624 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 5)
+[pid: 14751|app: 0|req: 93/187] 112.95.208.186 () {44 vars in 962 bytes} [Fri Mar 19 15:10:00 2021] GET / => generated 19064 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 6)
+[pid: 14751|app: 0|req: 94/188] 112.95.208.186 () {44 vars in 956 bytes} [Fri Mar 19 15:10:01 2021] GET / => generated 19064 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 8)
+[pid: 14751|app: 0|req: 95/189] 112.95.208.186 () {44 vars in 895 bytes} [Fri Mar 19 15:10:01 2021] GET /pageAjax?page_id=1&_=1616137801445 => generated 2009 bytes in 25 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 7)
+{'lifeCount': 1, 'studyCount': 7}
+[pid: 14751|app: 0|req: 96/190] 112.95.208.186 () {44 vars in 877 bytes} [Fri Mar 19 15:10:03 2021] GET /chartInfo?_=1616137801446 => generated 33 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 108 bytes (1 switches on core 9)
