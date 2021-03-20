@@ -1,0 +1,208 @@
+
+.pl_Content {
+position:relative;
+width:100%;
+left:50%;
+margin-left:-50%;
+margin-top:15px;
+}
+.wrap_reply {
+    position:relative;
+    left:50%;
+    margin-left:-400px;
+    width: 800px;
+    height:100%;
+
+    overflow:hidden;
+}
+
+  .left_reply {
+    width: 120px;
+    height: 120px;
+    float: left;
+}
+
+  .right_reply {
+    width: 680px;
+    height:120px;
+    float:left;
+}
+
+   .left_reply img {
+        width: 70px;
+        height: 70px;
+        margin-left: 50px;
+    }
+
+
+    .replay {
+    width: 660px;
+    height: 80px;
+    background-color: #ffffff;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+    .replay textarea {
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 640px;
+        height: 60px;
+        background-color:white;
+        text-indent:10px;
+    }
+
+    .replay .replyleft {
+        margin-left: 10px;
+        float: left;
+    }
+
+
+    .replay .replyright {
+        margin-right: 10px;
+        float: right;
+    }
+
+
+    /*、、、、、、、、、、、、评论CSS*/
+#MsgCon {
+position:relative;
+width:800px;
+left:50%;
+margin-left:-400px;
+overflow:hidden;
+}
+#MsgCon div.wrap_comment:last-child {
+ border-bottom:none;
+}
+.wrap_comment {
+    width: 800px;
+    height:100%;
+    overflow:hidden;
+   border-bottom:solid 1px blue;
+   margin-bottom:20px;
+
+
+}
+
+
+
+.comment_left img {
+        width: 50px;
+        height: 50px;
+        margin-left: 60px;
+        float:left;
+    }
+
+.comment_right {
+    width: 680px;
+    float: right;
+    /*background-color:green;*/
+
+}
+
+.comreply {
+    color: blue;
+    font-size: larger;
+    margin-left: 20px;
+}
+
+.comtime {
+    font-size: small;
+    margin-left: 20px;
+    color: gray;
+    margin-top: 5px;
+}
+
+.comcontent {
+    min-height:24px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.operate {
+    text-align: right;
+    margin-bottom:15px;
+}
+
+.commentreplay {
+    border: 1px solid #808080;
+    width: 660px;
+    height: 80px;
+    background-color: #ffffff;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+    .commentreplay textarea {
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 640px;
+        height: 40px;
+        background-color: #f8f3f3;
+        text-indent:10px;
+    }
+
+    .commentreplay .replyleft {
+        margin-left: 10px;
+        float: left;
+    }
+
+
+    .commentreplay .replyright {
+        margin-right: 10px;
+        float: right;
+    }
+
+#sizing-addon1:hover{
+    background-color: #5e5e5e;
+    color: black;
+}
+
+#signout:hover{
+    background-color: #000000;
+
+}
+
+/*.drop-menu {*/
+    /*position: relative;*/
+    /*display: inline-block; !* 使菜单形成自然宽度而不会撑满屏幕 *!*/
+    /*!* 其他的关于整体的样式控制 *!*/
+/*}*/
+/*.hover-btn {*/
+    /*cursor: pointer; !* hover时鼠标的变化提示 *!*/
+/*}*/
+
+/*.drop-content {*/
+    /*display: none; !* 默认不显示菜单 *!*/
+    /*position: absolute; !* 跟hover对象的relative对应 *!*/
+    /*z-index: 1; !* 保证菜单在最上层，不被其他元素覆盖 *!*/
+    /*!* 其他的关于下拉菜单的样式控制 *!*/
+/*}*/
+
+/*!* 以下开始利用hover选择器实现鼠标悬停时显示下拉菜单 *!*/
+/*.drop-menu:hover .drop-content {*/
+    /*display: block; !* 悬停时变为显示 *!*/
+/*}*/
+/*.drop-menu:hover .hover-btn {*/
+    /*!* 悬停时hover对象的样式控制 *!*/
+/*}*/
+
+.drop-content {
+    visibility: hidden;
+    display:None;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+.drop-menu:hover .drop-content {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+
+}
+
+/* 顺便给hover对象也加个效果 */
+.hover-btn {
+    transition: 0.5s;
+}

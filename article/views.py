@@ -8,10 +8,9 @@ from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page  # 缓存
 from .visit_info import change_info  # 当网站被访问时，更新网站访问次数
-
-
+from usermanager.models import  comment
 # Create your views here.
-
+from utils.Pager import Pager
 # @cache_page(None)  #设置为了永久缓存，当首页修改时需要删除缓存
 def index(request):
     change_info(request)  # 当网站被访问时，更新网站访问次数
@@ -160,10 +159,42 @@ def slowlife(request):
     change_info(request)  # 当网站被访问时，更新网站访问次数
     return render(request, 'article/slowlife.html')
 
-
+    # :param per_page:    每一页的数据数
+#         :param cur_page:    当前页码
+#         :param total_num:   数据库总行数
+#         :param page_view:   一次显示出的页码
+#         :param url          url
 def liuyan(request):
+    '''
+    
+    :param request: 
+    :return: 
+    '''
     change_info(request)  # 当网站被访问时，更新网站访问次数
-    return render(request, 'article/liuyan.html')
+    # print(request.session.get('userinfo'))
+    # print(request.session)
+    userinfo = request.session.get('userinfo')
+    total_num= comment.objects.all().count()
+    url = "/liuyan"
+    myPager = Pager(5, request.GET.get('page'), total_num, 6, url)
+    comments = comment.objects.values('content', 'usr__username', 'time').order_by('-id')[myPager.begin(): myPager.end()]
+    if userinfo:
+        username = '''<div class="drop-menu">
+                    '''+"<h1><div class='label label-default'>"+ userinfo['username'] + "</div></h1>"+'''
+                             <div class="drop-content">
+                                <h2><div id='signout'  onclick="signout()"  class='label label-default'>退出登录</div></h2>
+                            </div>
+                        </div>
+                        <div class=><div>
+                    '''
+    else:
+        username = '''<div class="row">
+                        <p style="margin-left: 14px;">请
+                        <a href="#" type="button" class="btn btn-default" data-toggle="modal" data-target="#loginModal">登录</a>
+                        /<a href="#"  type="button" class="btn btn-default" data-toggle="modal" data-target="#registerModal">注册</a>
+                        后评论</p>
+                    </div>'''
+    return render(request, 'article/liuyan.html', {"username": username, "comments": comments, "total_num": total_num,  "pager_info": myPager})
 
 
 # 404界面

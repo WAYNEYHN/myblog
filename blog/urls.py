@@ -21,9 +21,9 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^',include('article.urls')),
+    url(r'^user/',include('usermanager.urls')),
     url(r'mdeditor/', include('mdeditor.urls')),
     url(r'^search/', include('haystack.urls')),     #全文检索
-    url(r'^user/',include('usermanager.urls')),
 ]
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)

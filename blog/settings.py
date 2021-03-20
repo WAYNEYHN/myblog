@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'article',
     'mdeditor',     #富文本编辑器
     'haystack',
-    'usermanager',
+     'usermanager',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'selfMiddlewares.middlewares.MD1'
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -90,17 +91,26 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST':'127.0.0.1',
+#         'POST':'3306',
+#         'USER':'root',
+#         'PASSWORD':'wayneyang',
+#         'NAME': 'blog',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST':'127.0.0.1',
         'POST':'3306',
         'USER':'root',
-        'PASSWORD':'wayneyang',
-        'NAME': 'blog',
+        'PASSWORD':'123456',
+        'NAME': 'blog_1',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

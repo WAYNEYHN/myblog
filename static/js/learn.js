@@ -10,3 +10,50 @@ $(function () {
         $(this).css({background:colorList[i%5]});
     });
 });
+
+
+function AjaxSend() {
+$.ajax({
+    url:'/user/publish',
+    type:'POST',
+    data:{'title': $("#title").val(),
+           "csrfmiddlewaretoken": $("[name = 'csrfmiddlewaretoken']").val()},
+    dataType:"JSON",
+    success:function (arg) {
+        //当服务端处理完成后，返回数据时，该函数自动调用
+        //data=服务端返回的值
+        if(arg.status){
+// {#                    alert("添加成功")#}
+// {#                    window.location.reload()#}
+//                     location.href="/classes/"
+            location.reload()
+        }
+        else{
+            alert(arg.message)
+            // $("#errormsg").text(arg.message)
+        }
+    }
+})
+}
+
+function signout() {
+$.ajax({
+    url:'/user/signout',
+    type:'GET',
+    dataType:"JSON",
+    success:function (arg) {
+        //当服务端处理完成后，返回数据时，该函数自动调用
+        //data=服务端返回的值
+        if(arg.status){
+// {#                    alert("添加成功")#}
+// {#                    window.location.reload()#}
+//                     location.href="/classes/"
+            location.reload()
+        }
+        else{
+            alert(arg.message)
+            // $("#errormsg").text(arg.message)
+        }
+    }
+})
+}
